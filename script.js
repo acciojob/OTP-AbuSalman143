@@ -2,10 +2,13 @@
 // Handle input to focus on the next input field
 function handleInput(event) {
     const input = event.target;
+    input.classList.add('focused');
     if (input.value.length === 1) {
+        input.classList.remove('focused');
         const nextInput = input.nextElementSibling;
         if (nextInput && nextInput.classList.contains('code')) {
             nextInput.focus();
+            nextInput.classList.add('focused');
         }
     }
 }
